@@ -34,4 +34,11 @@ export class WaitlistService {
     const count = await this.waitlistRepository.count();
     return { count };
   }
+
+  // Retorna todos os leads — usado pelo painel admin
+  async findAll(): Promise<WaitlistEntity[]> {
+    return this.waitlistRepository.find({
+      order: { createdAt: 'DESC' },
+    });
+  }
 }
