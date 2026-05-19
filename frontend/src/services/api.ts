@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-// URL base da API — aponta pro backend NestJS
+// URL base da API — usa variável de ambiente em produção ou localhost em desenvolvimento
 const api = axios.create({
-  baseURL: 'http://localhost:3000',
+  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:3000',
 });
 
 // Cadastra um novo lead na waitlist
